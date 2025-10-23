@@ -1,0 +1,140 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                   DOOM EMACS - SISTEMA DE PERFILES                     ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+📁 Estructura de Perfiles
+─────────────────────────────────────────────────────────────────────────
+
+    ~/.doom.d/
+    ├── profiles.el              ← Declaración de perfiles
+    ├── profiles/
+    │   ├── base/                ← 🎨 Configuración común
+    │   │   ├── init.el          (theme, keybindings, UI)
+    │   │   ├── config.el
+    │   │   └── packages.el
+    │   │
+    │   ├── cpp/                 ← 🔧 C++ Development
+    │   │   ├── init.el          (clangd, cmake, tree-sitter)
+    │   │   ├── config.el
+    │   │   └── packages.el
+    │   │
+    │   ├── python/              ← 🐍 Python Development
+    │   │   ├── init.el          (pyright, black, pytest)
+    │   │   ├── config.el
+    │   │   └── packages.el
+    │   │
+    │   ├── rust/                ← 🦀 Rust Development
+    │   │   ├── init.el          (rust-analyzer, cargo)
+    │   │   ├── config.el
+    │   │   └── packages.el
+    │   │
+    │   ├── switch-profile.sh    ← 🚀 Script de ayuda
+    │   ├── QUICKSTART.md        ← 📖 Guía rápida
+    │   ├── README.md            ← 📚 Documentación completa
+    │   └── OVERVIEW.txt         ← Este archivo
+
+
+🚀 Comandos Rápidos
+─────────────────────────────────────────────────────────────────────────
+
+  Lanzar perfil:
+    $ emacs --profile python
+    $ emacs --profile cpp
+    $ emacs --profile rust
+
+  Sincronizar:
+    $ doom sync --profile python
+    $ doom sync --profile cpp
+    $ doom sync --profile rust
+
+  Con el script:
+    $ ~/.doom.d/profiles/switch-profile.sh launch python
+    $ ~/.doom.d/profiles/switch-profile.sh sync
+    $ ~/.doom.d/profiles/switch-profile.sh list
+
+
+🔗 Herencia de Configuración
+─────────────────────────────────────────────────────────────────────────
+
+    BASE ──┬──→ CPP     (hereda + LSP C++ + clangd)
+           │
+           ├──→ PYTHON  (hereda + LSP Python + pyright)
+           │
+           └──→ RUST    (hereda + LSP Rust + rust-analyzer)
+
+  Todos los perfiles cargan: (load! "../base/config.el")
+
+
+📦 Paquetes y Herramientas
+─────────────────────────────────────────────────────────────────────────
+
+  BASE:
+    ✓ Corfu + Vertico (completion)
+    ✓ Magit (git)
+    ✓ Org-mode
+    ✓ Projectile
+    ✓ Yasnippet
+
+  CPP:
+    ✓ clangd (LSP)
+    ✓ clang-format
+    ✓ cmake-mode
+    ✓ modern-cpp-font-lock
+    ✓ tree-sitter
+
+  PYTHON:
+    ✓ pyright (LSP)
+    ✓ black (formatter)
+    ✓ isort (imports)
+    ✓ pytest
+    ✓ pyvenv (virtualenv)
+    ✓ tree-sitter
+
+  RUST:
+    ✓ rust-analyzer (LSP)
+    ✓ rustfmt
+    ✓ clippy
+    ✓ cargo integration
+    ✓ tree-sitter
+
+
+⌨️  Keybindings Principales
+─────────────────────────────────────────────────────────────────────────
+
+  GLOBAL (sin evil-mode):
+    C-x C-f       Abrir archivo
+    C-x C-s       Guardar
+    C-c p f       Buscar archivo en proyecto
+    C-c p p       Cambiar proyecto
+    C-c C-,       Abrir config
+
+  LOCALLEADER (C-c m):
+    C++ →    c = compile, r = recompile, f = format
+    Python → ' = REPL, t t = pytest, f = format
+    Rust →   c b = build, c r = run, c t = test
+
+
+🎯 Próximos Pasos
+─────────────────────────────────────────────────────────────────────────
+
+  1. Lee QUICKSTART.md para empezar
+  2. Instala las dependencias del sistema (clangd, pyright, rust-analyzer)
+  3. Sincroniza todos los perfiles: ~/.doom.d/profiles/switch-profile.sh sync
+  4. Prueba cada perfil: emacs --profile <nombre>
+  5. Personaliza según tus necesidades
+
+
+📖 Documentación
+─────────────────────────────────────────────────────────────────────────
+
+  QUICKSTART.md  → Guía rápida de inicio
+  README.md      → Documentación detallada
+  CLAUDE.md      → (en raíz) Arquitectura de Doom
+
+  Online:
+    https://github.com/doomemacs/doomemacs
+    https://discourse.doomemacs.org/
+
+╔════════════════════════════════════════════════════════════════════════╗
+║  🎉 ¡Sistema de perfiles configurado exitosamente!                    ║
+╚════════════════════════════════════════════════════════════════════════╝
